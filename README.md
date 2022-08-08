@@ -1,11 +1,11 @@
-==Example of how to build a container for use on CANFAR.net==
+## Example of how to build a container for use on CANFAR.net ##
 
 The canfar.net science portal allows users to build docker containers
 to be launched on that platform.  Building containers can be a little
 tricky.  There are various documentation pages but this is more of a
 cookbook with an example.
 
-=== Step 1 - Build a Dockerfile ===
+### Step 1 - Build a Dockerfile ###
 
 Here you will build a Dockerfile that is used by the `docker build` command to build an container.
 
@@ -14,8 +14,7 @@ Here you will build a Dockerfile that is used by the `docker build` command to b
 There are many web pages that explain how to build things with `docker`.  In this cookbook I include a `Dockerfile` that build an `IRAF` deployment.  Have a look at that to see what CANFAR specific things are needed for a container to work on canfar.net
 
 Read the Dockerfile to get a hang of how to build CANFAR Dockerfiles.
-
-==== Why is there a Makefile ====
+#### Why is there a Makefile ####
 
 Remembering the syntax for the `docker` commands is more than I need so I construct a `Makefile` to do those commnds.  The included `Makefile` is run as:
 
@@ -25,7 +24,7 @@ or
 
 `make deploy`
 
-=== Step 2 - Testing the container ===
+### Step 2 - Testing the container ###
 
 The `dev` version builds a container and keeps that local.  You can then launch that container and use it locally or just use it for some testing.  To launch the container that is built by the incuded `Dockerfile` and `Makefile` do:
 
@@ -45,7 +44,7 @@ The `dev` version builds a container and keeps that local.  You can then launch 
 
 Run the container and check that IRAF is working.
 
-=== Step 3 - Push the image ===
+### Step 3 - Push the image ###
 
 `make deploy` will run the `docker` command needed to push the image
 to canfar.net.  To push images you must have `developer` permsion on
@@ -54,7 +53,7 @@ need to have a token transfered to a local docker cache, see
 instrutions here:
 <https://github.com/opencadc/science-platform/tree/master/containers#publishing>
 
-=== Step 4 - Tag the new container ===
+### Step 4 - Tag the new container ###
 
 Each container on images.canfar.net needs to be TAG as either (or
 both) and `notebook` or `desktop-app` container (DO NOT LABEL AS
@@ -63,4 +62,4 @@ system to discover your container and offer to launch it.  Checkout
 <https://github.com/opencadc/science-platform/tree/master/containers>
 for some details on how to do that.
 
-=== Step 5 - Luanch you container via canfar.net site ===
+### Step 5 - Luanch you container via canfar.net site ###
